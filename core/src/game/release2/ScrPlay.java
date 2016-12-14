@@ -20,8 +20,8 @@ public class ScrPlay implements Screen {
     public ScrPlay(GamGeoDash game) {
         this.game = game;
         map = new Map("map.tmx", game.world);
-        player = new Player(new Vector2(100, 200), 32, this.game.world, "geoDash.png");
-        batch = new SpriteBatch();
+        player = new Player(new Vector2(50, 100), 32, this.game.world, "geoDash.png");
+        batch = game.batch;
     }
 
     @Override
@@ -33,18 +33,11 @@ public class ScrPlay implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        updateView();
         map.draw(game.camera);
         game.b2dr.render(game.world, game.camera.combined.scl(PPM)); // render the outline of obstacles
         batch.begin();
         player.draw(batch);
         batch.end();
-    }
-    public void updateView() {
-        game.world.step(1 / 60f, 6, 2);
-        game.camera.update();
-        batch.setProjectionMatrix(game.camera.combined);
-        game.b2dr.render(game.world, game.camera.combined);
     }
 
     @Override
