@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-import static game.release2.GamGeoDash.PPM;
-
 /**
  * Created by hafiz on 12/13/2016.
  */
@@ -17,6 +15,7 @@ public class ScrPlay implements Screen {
     Map map;
     Player player;
     SpriteBatch batch;
+
     public ScrPlay(GamGeoDash game) {
         this.game = game;
         map = new Map("map.tmx", game.world);
@@ -34,7 +33,9 @@ public class ScrPlay implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         map.draw(game.camera);
-        game.b2dr.render(game.world, game.camera.combined.scl(PPM)); // render the outline of obstacles
+        batch.begin();
+        player.draw(batch);
+        batch.end();
         batch.begin();
         player.draw(batch);
         batch.end();

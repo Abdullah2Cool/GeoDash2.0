@@ -65,7 +65,7 @@ public class Player implements InputProcessor {
     public void move() {
         if (bKeys[Input.Keys.SPACE]) {
             //System.out.println(pBody.getMass() * PPM);
-            pBody.applyForceToCenter(0, pBody.getMass() * PPM * 1.5f, false);
+            pBody.applyForceToCenter(0, pBody.getMass() * PPM * 3f, false);
         }
         pBody.setLinearVelocity(fSpeed, pBody.getLinearVelocity().y);
     }

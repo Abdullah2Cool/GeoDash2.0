@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 
@@ -48,7 +47,6 @@ public class GamGeoDash extends Game {
     }
     public void updateView() {
         world.step(1 / 60f, 6, 2);
-        Vector3 vCameraPos = camera.position;
         camera.position.x = scrPlay.player.getPosition().x + 350;
         camera.position.y = scrPlay.player.getPosition().y + 120;
         System.out.println(camera.position.y);
@@ -56,7 +54,7 @@ public class GamGeoDash extends Game {
         camera.position.y = MathUtils.clamp(camera.position.y, 200, 400);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        b2dr.render(world, camera.combined);
+        //b2dr.render(world, camera.combined);
     }
 
     @Override
