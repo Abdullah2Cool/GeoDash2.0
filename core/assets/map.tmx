@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="1000" height="30" tilewidth="32" tileheight="32" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="1000" height="20" tilewidth="32" tileheight="32" nextobjectid="34">
  <tileset firstgid="1" name="test" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="450" columns="18">
   <image source="tiles-01-01-01.png" width="596" height="842"/>
  </tileset>
- <layer name="map2" width="1000" height="30">
+ <layer name="BG" width="1000" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwYEAAAAAw6D5U9/gBFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAM1M8AAQ==
+   eJztw0ENAAAMA6FzWv8u9p8GSFg1VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV9D6yI/4U=
   </data>
  </layer>
- <layer name="map1" width="1000" height="30">
+ <layer name="map" width="1000" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt20EKgzAQQFFbegbvf9RuWpDSYjRJ40zeg9m4UGb5GVyXZVkTDAAAAESWoW0z7AAAAMDcMrRthh0AAACYW6+2fbzmH/Q5AAAA0elzAAAAGE+fAwAAwHj6HAAAAMbT5wAAADBehrbNsAMAAABzy9C2GXYAAABgbr3b9r6Zz2et6HMAAACi69m2t8Kppc8BAACIrkXbfruRv99dMrX3dH0OAABAdDVtu3cXL+3z2nu6PgcAACC6kratvY+fmV/fPLsDAAAAXNle27a4j5+ZI/+q63MAAACi22vbng1ec1c/sgMAAABc3ejebjUAAAAQ2eiu1ucAAAAwvqv1OQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFtPnFIdJA==
+   eJzt2cEKwjAURNHU//9oV4KIxWgT28w7B97GhWWWl2yttS3gAAAAYGUJbZuwAQAAgNoS2jZhAwAAALUltG3CBgAAAGpLaNuEDQAAANSW0LYJGwAAAKgtoW0TNgAAAFBbQtsmbAAAAKC2hLZN2AAAAEBtCW2bsAEAAIDaZrft7elefxtFnwMAALC6mW27dd6I7wAAAMDKRrTtuzfyx3/33NH3dH0OAADA6o60bW9/f3v/3AAAAABX0NO2R9/Hf7m9b/66AQAAAK7sU9vObPBRb+v6HAAAgNWt1ud77/gAAACwsrN7e+a7OgAAAKzi7K7W5wAAAHB+V+tzAAAAaO0Oxe4Blg==
   </data>
  </layer>
  <objectgroup color="#aaff00" name="collision">
