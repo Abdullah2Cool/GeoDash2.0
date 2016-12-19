@@ -25,7 +25,7 @@ public class Player implements InputProcessor {
     private Body pBody;
     private String sPath;
     private Sprite spPlayer;
-    private float fSpeed;
+    private float fSpeed, fJumpHeight;
     private boolean[] bKeys;
 
     public Player(Vector2 vPos, float fLength, World world, String sPath) {
@@ -36,7 +36,8 @@ public class Player implements InputProcessor {
         this.sPath = sPath;
         pBody = createBody(vPos, fLength);
         spPlayer = new Sprite(new Texture(sPath));
-        fSpeed = 4;
+        fSpeed = 15;
+        fJumpHeight = 900 * fSpeed;
         Gdx.input.setInputProcessor(this);
         bKeys = new boolean[512];
     }
@@ -45,12 +46,13 @@ public class Player implements InputProcessor {
         Body pBody;
         BodyDef def = new BodyDef();
         def.type = BodyDef.BodyType.DynamicBody;
+        def.fixedRotation = true;
         def.position.set(vPos.x / PPM, vPos.y / PPM);
         pBody = world.createBody(def);
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(fLength / 2 / PPM, fLength / 2 / PPM);
-        pBody.createFixture(shape, 1f);
+        pBody.createFixture(shape, 10f);
         shape.dispose();
         return pBody;
     }
@@ -63,10 +65,14 @@ public class Player implements InputProcessor {
     }
 
     public void move() {
-        if (bKeys[Input.Keys.SPACE]) {
-            //System.out.println(pBody.getMass() * PPM);
-            pBody.applyForceToCenter(0, pBody.getMass() * PPM * 3f, false);
-        }
+//        if (bKeys[Input.Keys.SPACE]) {
+//            //System.out.println(pBody.getMass() * PPM);
+//            pBody.applyForceToCenter(0, pBody.getMass() * PPM * 2f, false);
+//        } else if (bKeys[Input.Keys.LEFT] || bKeys[Input.Keys.RIGHT]) {
+//            System.out.println("CHANGE");
+//            fSpeed *= -1;
+//        }
+        world.setGravity(new Vector2(0, -pBody.getPosition().y * 15));
         pBody.setLinearVelocity(fSpeed, pBody.getLinearVelocity().y);
     }
 
@@ -77,6 +83,13 @@ public class Player implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         bKeys[keycode] = true;
+        if (keycode == Input.Keys.SPACE) {
+            System.out.println(pBody.getMass() * PPM);
+            pBody.applyForceToCenter(0, fJumpHeight, false);
+        } else if (keycode == Input.Keys.LEFT || keycode == Input.Keys.RIGHT) {
+            //System.out.println("CHANGE");
+            fSpeed *= -1;
+        }
         return false;
     }
 
@@ -93,6 +106,7 @@ public class Player implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        //pBody.applyForceToCenter(0, pBody.getMass() * PPM * 20f, false);
         return false;
     }
 

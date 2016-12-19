@@ -49,8 +49,8 @@ public class GamGeoDash extends Game {
         world.step(1 / 60f, 6, 2);
         camera.position.x = scrPlay.player.getPosition().x + 350;
         camera.position.y = scrPlay.player.getPosition().y + 120;
-        System.out.println(camera.position.y);
-        camera.position.x = MathUtils.clamp(camera.position.x, 350, 1200);
+        //System.out.println(camera.position.x);
+        camera.position.x = MathUtils.clamp(camera.position.x, 350, 14000);
         camera.position.y = MathUtils.clamp(camera.position.y, 200, 400);
         camera.update();
         batch.setProjectionMatrix(camera.combined);

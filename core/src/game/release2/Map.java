@@ -29,7 +29,7 @@ public class Map {
         map = new TmxMapLoader().load(sPath);
         this.world = world;
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
-        loadObstacles(map.getLayers().get("collision").getObjects());
+        loadObstacles(map.getLayers().get("platfroms").getObjects());
     }
 
     public void draw(OrthographicCamera camera) {
